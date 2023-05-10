@@ -4,12 +4,34 @@ using UnityEngine;
 
 public class Driver : MonoBehaviour
 {
-    [SerializeField] float moveSpeed = 20f;
+    [SerializeField] float normalSpeed = 20f;
     [SerializeField] float steeringSpeed = 300f;
-    void Start()
-    {
+    [SerializeField] float moveSpeed = 20f;
+    [SerializeField] float slowSpeed = 10f;
+    [SerializeField] float boostSpeed = 30f;
 
+    [SerializeField] float slowTime = 2f;
+    
+    void OnCollisionEnter2D(Collision2D other) 
+    {
+        moveSpeed = slowSpeed;
+        StartCoroutine(ResetMoveSpeed(slowTime));
     }
+
+    IEnumerator ResetMoveSpeed(float slowTime)
+    {
+        yield return new WaitForSeconds(slowTime);
+        moveSpeed = normalSpeed;
+    }
+
+    void OnTriggerEnter2D(Collider2D other) 
+    {
+        if (other.tag == "SpeedUp")
+        {
+            moveSpeed = boostSpeed;
+        }
+    }
+
 
     void Update()
     {
