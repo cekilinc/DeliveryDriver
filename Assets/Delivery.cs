@@ -120,8 +120,18 @@ public class Delivery : MonoBehaviour
                 {
                     packageList[nextIndex].SetActive(true);
                     customerList[currentCustomer].SetActive(false);
+                    if (usedPackages.Count == packageList.Count-1)
+                    {
+                        SpriteRenderer finalCustomerSpriteRenderer = customerList[nextCustomer].GetComponent<SpriteRenderer>();
+                        finalCustomerSpriteRenderer.color = Color.red;
+                    }
                     customerList[nextCustomer].SetActive(true);
                     currentCustomer = nextCustomer;
+
+                }
+                else
+                {
+                    customerList[currentCustomer].SetActive(false);
                 }
                 usedPackages.Add(nextIndex);
                 currentIndex = nextIndex;
