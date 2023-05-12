@@ -3419,7 +3419,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   normalSpeed: 10
   steeringSpeed: 200
-  moveSpeed: 10
+  moveSpeed: 0
   slowSpeed: 5
   boostSpeed: 20
   slowTime: 2
