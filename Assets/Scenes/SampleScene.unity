@@ -3417,11 +3417,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46a37d5806a43384d878eebfe4c57735, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  normalSpeed: 20
-  steeringSpeed: 300
-  moveSpeed: 20
-  slowSpeed: 10
-  boostSpeed: 30
+  normalSpeed: 10
+  steeringSpeed: 200
+  moveSpeed: 10
+  slowSpeed: 5
+  boostSpeed: 20
   slowTime: 2
 --- !u!212 &679963003
 SpriteRenderer:
