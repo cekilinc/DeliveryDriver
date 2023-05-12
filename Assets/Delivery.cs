@@ -28,13 +28,13 @@ public class Delivery : MonoBehaviour
         List<int> usedPackages = new List<int>();
 
         ///<summary>
-        ///This method takes a parent, creates a list of its childs and activates a random one
+        ///This method takes a parent, creates and returns list of its childs and activates a random one
         ///</summary>
-        ///<param name="desiredList">List to be filled with childs</param>
         ///<param name="parent">Parent from which list will be created</param>
         ///<param name="currentActive">Integer var to which activated index will be assigned</param>
-        public void CreateInactiveListFromParentActivateOne (ref List<GameObject> desiredList,GameObject parent,ref int currentActive)
+        public List<GameObject> CreateInactiveListFromParentActivateOne (GameObject parent,ref int currentActive)
         {
+            List<GameObject> desiredList = new List<GameObject>();
             foreach (Transform child in parent.transform)
             {
                 desiredList.Add(child.gameObject);
@@ -45,17 +45,15 @@ public class Delivery : MonoBehaviour
             }
             currentActive = Random.Range(0,desiredList.Count);
             desiredList[currentActive].SetActive(true);
+            return desiredList;
         }
 
         void Start() 
         {
             vehicleSpriteRenderer = GetComponent<SpriteRenderer>();
 
-            packageList = new List<GameObject>();
-            customerList = new List<GameObject>();
-
-            CreateInactiveListFromParentActivateOne(ref packageList,allPackages,ref currentIndex);
-            CreateInactiveListFromParentActivateOne(ref customerList,allCustomers,ref currentCustomer);
+            packageList = CreateInactiveListFromParentActivateOne(allPackages,ref currentIndex);
+            customerList = CreateInactiveListFromParentActivateOne(allCustomers,ref currentCustomer);
 
             /* foreach (Transform package in allPackages.transform)
             {
