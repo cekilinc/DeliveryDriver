@@ -1554,13 +1554,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 257838375}
-  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
+  m_LocalRotation: {x: -0, y: -0, z: -0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 25.38, y: -1.45, z: 0}
-  m_LocalScale: {x: 2.5018108, y: 2.5018108, z: 2.5018108}
+  m_LocalScale: {x: 2.5018106, y: 2.5018106, z: 2.5018108}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_Father: {fileID: 818823438}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!1 &260581505
 GameObject:
@@ -2434,13 +2434,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 372327798}
-  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 65.76, y: 3.85, z: 0}
-  m_LocalScale: {x: 2.5018108, y: 2.5018108, z: 2.5018108}
+  m_LocalScale: {x: 2.5018106, y: 2.5018106, z: 2.5018108}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_Father: {fileID: 818823438}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!1 &383157229
 GameObject:
@@ -3417,10 +3417,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46a37d5806a43384d878eebfe4c57735, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  normalSpeed: 20
   steeringSpeed: 300
   moveSpeed: 20
   slowSpeed: 10
   boostSpeed: 30
+  slowTime: 2
 --- !u!212 &679963003
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3554,6 +3556,8 @@ MonoBehaviour:
   noPackageColor:
     serializedVersion: 2
     rgba: 4294967295
+  allPackages: {fileID: 880694763}
+  allCustomers: {fileID: 964781399}
 --- !u!1 &689947831
 GameObject:
   m_ObjectHideFlags: 0
@@ -4533,6 +4537,39 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 1.8
+--- !u!1 &818823437
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 818823438}
+  m_Layer: 0
+  m_Name: SpeedUps
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &818823438
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 818823437}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 257838378}
+  - {fileID: 372327801}
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &828025844
 GameObject:
   m_ObjectHideFlags: 0
