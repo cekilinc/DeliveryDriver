@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class Countdown : MonoBehaviour
 {
@@ -35,6 +36,7 @@ public class Countdown : MonoBehaviour
         {
             countdown.text = "TIME'S UP!";
             gameCountdown = false;
+            RestartLevel();
         }
         
     }
@@ -56,5 +58,11 @@ public class Countdown : MonoBehaviour
         }
         countdown.text ="";
         gameCountdown = true;
+    }
+
+    void RestartLevel ()
+    {
+        Scene currentScene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(currentScene.name);
     }
 }

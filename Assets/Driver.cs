@@ -11,6 +11,8 @@ public class Driver : MonoBehaviour
     [SerializeField] float boostSpeed = 20f;
 
     [SerializeField] float slowTime = 2f;
+
+    bool speedUpEntered;
     
     /* void setNormalSpeed ()
     {
@@ -26,6 +28,7 @@ public class Driver : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D other) 
     {
+        speedUpEntered = false;
         moveSpeed = slowSpeed;
         //Invoke starts after specified time
         //Invoke("setNormalSpeed",slowTime);
@@ -50,7 +53,8 @@ public class Driver : MonoBehaviour
     IEnumerator ResetMoveSpeed(float slowTime)
     {
         yield return new WaitForSeconds(slowTime);
-        moveSpeed = normalSpeed;
+        if(!speedUpEntered)
+        {moveSpeed = normalSpeed;}
     } 
 
     void OnTriggerEnter2D(Collider2D other) 
@@ -59,6 +63,7 @@ public class Driver : MonoBehaviour
         {
             moveSpeed = boostSpeed;
         }
+        speedUpEntered = true;
     }
 
 
