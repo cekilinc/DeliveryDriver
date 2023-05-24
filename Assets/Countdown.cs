@@ -12,6 +12,7 @@ public class Countdown : MonoBehaviour
 
     public TMP_Text countdown;
     bool gameCountdown;
+    public static bool levelEnded;
     
     // Start is called before the first frame update
     void Start()
@@ -36,6 +37,7 @@ public class Countdown : MonoBehaviour
         {
             countdown.text = "TIME'S UP!";
             gameCountdown = false;
+            levelEnded = true;
             if(Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return))
             {
                 RestartLevel();
@@ -70,6 +72,7 @@ public class Countdown : MonoBehaviour
     {
         Scene currentScene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(currentScene.name);
+        Countdown.levelEnded = false;
     }
 
     void QuitGame ()

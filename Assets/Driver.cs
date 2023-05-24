@@ -13,6 +13,9 @@ public class Driver : MonoBehaviour
     [SerializeField] float slowTime = 2f;
 
     bool speedUpEntered;
+
+    float steerAmount;
+    float moveAmount;
     
     /* void setNormalSpeed ()
     {
@@ -21,7 +24,7 @@ public class Driver : MonoBehaviour
 
     void Start() 
     {
-        StartCoroutine(Countdown(3));
+        StartCoroutine(startCountdown(3));
         //below does the same job
         //StartCoroutine("Countdown",3);
     }
@@ -38,7 +41,7 @@ public class Driver : MonoBehaviour
         StartCoroutine(ResetMoveSpeed(slowTime));
     }
 
-    IEnumerator Countdown (int seconds)
+    IEnumerator startCountdown (int seconds)
     {
         while (seconds > 0)
         {
@@ -69,8 +72,16 @@ public class Driver : MonoBehaviour
 
     void Update()
     {
-        float steerAmount = Input.GetAxis("Horizontal") * steeringSpeed * Time.deltaTime;
-        float moveAmount = Input.GetAxis("Vertical") * moveSpeed * Time.deltaTime;
+        if (!Countdown.levelEnded)
+        {
+            steerAmount = Input.GetAxis("Horizontal") * steeringSpeed * Time.deltaTime;
+            moveAmount = Input.GetAxis("Vertical") * moveSpeed * Time.deltaTime;
+        }
+        else
+        {
+            steerAmount = 0;
+            moveAmount = 0;
+        }
         transform.Rotate(0,0,-steerAmount);
         transform.Translate(0,moveAmount,0);
     }
