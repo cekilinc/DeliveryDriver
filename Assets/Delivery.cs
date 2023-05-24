@@ -132,6 +132,7 @@ public class Delivery : MonoBehaviour
                 else
                 {
                     customerList[currentCustomer].SetActive(false);
+                    Countdown.levelEnded = true;
                 }
                 usedPackages.Add(nextIndex);
                 currentIndex = nextIndex;
