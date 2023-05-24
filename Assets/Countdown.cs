@@ -36,9 +36,15 @@ public class Countdown : MonoBehaviour
         {
             countdown.text = "TIME'S UP!";
             gameCountdown = false;
-            RestartLevel();
+            if(Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return))
+            {
+                RestartLevel();
+            }
         }
-        
+        if(Input.GetKeyDown(KeyCode.Escape))
+            {
+                QuitGame();
+            }
     }
 
     IEnumerator startCountdown (int seconds)
@@ -64,5 +70,17 @@ public class Countdown : MonoBehaviour
     {
         Scene currentScene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(currentScene.name);
+    }
+
+    void QuitGame ()
+    {
+        if(Application.isEditor)
+        {
+            UnityEditor.EditorApplication.isPlaying = false;
+        }
+        else
+        {
+            Application.Quit();
+        }
     }
 }
