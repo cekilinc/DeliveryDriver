@@ -16,6 +16,8 @@ public class Driver : MonoBehaviour
 
     float steerAmount;
     float moveAmount;
+
+    Coroutine activeCoroutine;
     
     /* void setNormalSpeed ()
     {
@@ -38,7 +40,11 @@ public class Driver : MonoBehaviour
 
 
         //You can pass arguments to a coroutine
-        StartCoroutine(ResetMoveSpeed(slowTime));
+        if (activeCoroutine!=null)
+        {
+            StopCoroutine(activeCoroutine);
+        }
+        activeCoroutine = StartCoroutine(ResetMoveSpeed(slowTime));
     }
 
     IEnumerator startCountdown (int seconds)
