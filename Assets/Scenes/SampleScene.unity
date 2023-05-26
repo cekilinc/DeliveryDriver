@@ -669,7 +669,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   totalTime: 300
-  countdown: {fileID: 0}
+  displayText: {fileID: 0}
 --- !u!1 &97700423
 GameObject:
   m_ObjectHideFlags: 0
@@ -3570,9 +3570,9 @@ MonoBehaviour:
   normalSpeed: 10
   steeringSpeed: 200
   moveSpeed: 0
-  slowSpeed: 5
+  slowSpeed: 2
   boostSpeed: 20
-  slowTime: 2
+  slowTime: 3
 --- !u!212 &679963003
 SpriteRenderer:
   m_ObjectHideFlags: 0
