@@ -12,7 +12,7 @@ public class Driver : MonoBehaviour
 
     [SerializeField] float slowTime = 2f;
 
-    bool speedUpEntered;
+    bool speedUpEntered = false;
 
     float steerAmount;
     float moveAmount;
@@ -65,8 +65,8 @@ public class Driver : MonoBehaviour
         if (other.tag == "SpeedUp")
         {
             moveSpeed = boostSpeed;
+            speedUpEntered = true;
         }
-        speedUpEntered = true;
     }
 
 
