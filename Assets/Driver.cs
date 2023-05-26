@@ -7,10 +7,10 @@ public class Driver : MonoBehaviour
     [SerializeField] float normalSpeed = 10f;
     [SerializeField] float steeringSpeed = 200f;
     [SerializeField] float moveSpeed = 0;
-    [SerializeField] float slowSpeed = 5f;
+    [SerializeField] float slowSpeed = 2f;
     [SerializeField] float boostSpeed = 20f;
 
-    [SerializeField] float slowTime = 2f;
+    [SerializeField] float slowTime = 3f;
 
     bool speedUpEntered = false;
 
@@ -61,9 +61,19 @@ public class Driver : MonoBehaviour
 
     IEnumerator ResetMoveSpeed(float slowTime)
     {
-        yield return new WaitForSeconds(slowTime);
+        //yield return new WaitForSeconds(slowTime);
+        //if(!speedUpEntered)
+        //{moveSpeed = normalSpeed;}
+        float elapsedTime=0f;
+        while (elapsedTime<slowTime && !speedUpEntered)
+        {
+            moveSpeed = Mathf.Lerp(slowSpeed,normalSpeed,elapsedTime/slowTime);
+            Debug.Log(moveSpeed);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
         if(!speedUpEntered)
-        {moveSpeed = normalSpeed;}
+        {moveSpeed=normalSpeed;}
     } 
 
     void OnTriggerEnter2D(Collider2D other) 
