@@ -25,6 +25,8 @@ public class Delivery : MonoBehaviour
         int nextIndex;
         int nextCustomer;
 
+        public static int remainingPackagesCount;
+
         List<int> usedPackages = new List<int>();
 
         ///<summary>
@@ -53,6 +55,7 @@ public class Delivery : MonoBehaviour
             vehicleSpriteRenderer = GetComponent<SpriteRenderer>();
 
             packageList = CreateInactiveListFromParentActivateOne(allPackages,ref currentIndex);
+            remainingPackagesCount = packageList.Count;
             customerList = CreateInactiveListFromParentActivateOne(allCustomers,ref currentCustomer);
 
             /* foreach (Transform package in allPackages.transform)
@@ -86,6 +89,7 @@ public class Delivery : MonoBehaviour
                 */
                 Debug.Log("Package picked up.");
                 hasPackage = true;
+                remainingPackagesCount--;
                 vehicleSpriteRenderer.color = hasPackageColor;
                 //Destroy(other.gameObject,destroyDelay);
                 do

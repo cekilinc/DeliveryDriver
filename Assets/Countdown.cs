@@ -31,7 +31,7 @@ public class Countdown : MonoBehaviour
         if (gameCountdown && !levelEnded)
         {
             remainingTime -= Time.deltaTime;
-            displayText.text = string.Format("{0:0}:{1:00}:{2:0}",minutes,seconds,miliseconds);
+            displayText.text = string.Format("{0:0}:{1:00}:{2:0}\nREMAINING PACKAGES:{3}",minutes,seconds,miliseconds,Delivery.remainingPackagesCount);
         }
         if(remainingTime <= 0)
         {
